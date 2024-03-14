@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Web30india\Uiform\Api\BlogRepositoryInterface" type="Web30india\Uiform\Model\BlogRepository"/>
+	<preference for="Web30india\Uiform\Api\Data\BlogInterface" type="Web30india\Uiform\Model\Blog"/>
+	<preference for="Web30india\Uiform\Api\Data\BlogSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	
+	<virtualType name="Web30india\Uiform\Model\ResourceModel\Blog\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">web30india_uiform_blog</argument>
+			<argument name="resourceModel" xsi:type="string">Web30india\Uiform\Model\ResourceModel\Blog\Collection</argument>
+		</arguments>
+	</virtualType>
+	
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="web30india_uiform_blog_listing_data_source" xsi:type="string">Web30india\Uiform\Model\ResourceModel\Blog\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+
+	<!-- Image Uploader -->
+	<virtualType name="VirtualTypeName" type="Web30india\Uiform\Model\ImageUploader">
+		<arguments>
+			<argument name="baseTmpPath" xsi:type="string">blog/tmp/image</argument>
+			<argument name="basePath" xsi:type="string">blog/image</argument>
+			<argument name="allowedExtensions" xsi:type="array">
+				<item name="jpg" xsi:type="string">jpg</item>
+				<item name="jpeg" xsi:type="string">jpeg</item>
+				<item name="gif" xsi:type="string">gif</item>
+				<item name="png" xsi:type="string">png</item>
+			</argument>
+		</arguments>
+	</virtualType>
+	<type name="Web30india\Uiform\Controller\Adminhtml\Blog\Upload">
+		<arguments>
+			<argument name="imageUploader" xsi:type="object">VirtualTypeName</argument>
+		</arguments>
+	</type>
+	<!-- End Image Uploader -->
+</config>

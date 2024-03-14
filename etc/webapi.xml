@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route url="/V1/web30india-uiform/blog" method="POST">
+		<service class="Web30india\Uiform\Api\BlogRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Web30india_Uiform::Blog_save"/>
+		</resources>
+	</route>
+	<route url="/V1/web30india-uiform/blog/search" method="GET">
+		<service class="Web30india\Uiform\Api\BlogRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Web30india_Uiform::Blog_view"/>
+		</resources>
+	</route>
+	<route url="/V1/web30india-uiform/blog/:blogId" method="GET">
+		<service class="Web30india\Uiform\Api\BlogRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="Web30india_Uiform::Blog_view"/>
+		</resources>
+	</route>
+	<route url="/V1/web30india-uiform/blog/:blogId" method="PUT">
+		<service class="Web30india\Uiform\Api\BlogRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Web30india_Uiform::Blog_update"/>
+		</resources>
+	</route>
+	<route url="/V1/web30india-uiform/blog/:blogId" method="DELETE">
+		<service class="Web30india\Uiform\Api\BlogRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Web30india_Uiform::Blog_delete"/>
+		</resources>
+	</route>
+</routes>

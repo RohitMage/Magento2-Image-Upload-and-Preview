@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="web30india_uiform_blog" resource="default" engine="innodb" comment="web30india_uiform_blog Table">
+		<column xsi:type="int" name="blog_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="blog_id"/>
+		</constraint>
+		<column name="name" nullable="true" xsi:type="text" comment="Name"/>
+		<column name="status" nullable="true" xsi:type="boolean" comment="Status"/>
+		<column name="category" nullable="true" xsi:type="varchar" comment="Category" length="255"/>
+		<column name="image" nullable="true" xsi:type="varchar" comment="Image" length="255"/>
+	</table>
+</schema>

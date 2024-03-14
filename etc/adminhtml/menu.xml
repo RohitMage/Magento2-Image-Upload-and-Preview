@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Web30india::top_level" title="Web30india" module="Web30india_Uiform" sortOrder="9999" resource="Magento_Backend::content"/>
+		<add id="Web30india_Uiform::web30india_uiform_blog" title="Blog" module="Web30india_Uiform" sortOrder="9999" resource="Magento_Backend::content" parent="Web30india::top_level" action="web30india_uiform/blog/index"/>
+	</menu>
+</config>
